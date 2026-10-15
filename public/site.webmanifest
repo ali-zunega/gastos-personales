@@ -1,0 +1,14 @@
+{
+  "name": "Valoora",
+  "short_name": "Valoora",
+  "description": "Control y gestión financiera personal",
+  "icons": [
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/favicon-180x180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/valoora-favicon.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#4822BD",
+  "background_color": "#EDEBF7",
+  "display": "standalone"
+}

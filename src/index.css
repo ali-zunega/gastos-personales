@@ -1,0 +1,26 @@
+:root {
+  /* Valoora — identidad inspirada en el mockup lavanda / morado */
+  --valoora-bg: #e9ebf6;
+  --valoora-surface: #f4f3ff;
+  --valoora-card: #ffffff;
+  --valoora-primary: #5f2ee5;
+  --valoora-primary-deep: #4c1d95;
+  --valoora-primary-soft: #ede9fe;
+  --valoora-accent: #a78bfa;
+  --valoora-accent-pale: #c4b5fd;
+  --valoora-ink: #1e1b4b;
+  --valoora-ink-soft: #4c4a6b;
+  --valoora-radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--valoora-bg);
+  color: var(--valoora-ink);
+  -webkit-font-smoothing: antialiased;
+}

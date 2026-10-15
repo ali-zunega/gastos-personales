@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Tableros de referencia de marca (no se publican)
+public/brand-board.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
