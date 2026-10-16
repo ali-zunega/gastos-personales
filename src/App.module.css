@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
 }
 
 .header {
@@ -20,46 +20,23 @@
   color: var(--valoora-ink-soft);
 }
 
-.grid {
+.section {
   width: 100%;
   max-width: 920px;
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.card {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px;
-  background: var(--valoora-card);
-  border: 1px solid var(--valoora-border);
-  border-radius: var(--valoora-radius);
-  box-shadow: var(--valoora-shadow);
+  gap: 20px;
 }
 
-.cardTitle {
+.sectionTitle {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--valoora-ink);
 }
 
-.row {
+.demoHeader {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 16px;
-}
-
-.note {
-  margin: 0;
-  font-size: 0.82rem;
-  color: var(--valoora-ink-soft);
 }

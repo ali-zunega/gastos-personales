@@ -1,0 +1,38 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  background: var(--valoora-card);
+  border: 1px solid var(--valoora-border);
+  border-radius: var(--valoora-radius);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  align-items: end;
+}
+
+.search {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .search {
+    grid-column: auto;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.count {
+  font-size: 0.8rem;
+  color: var(--valoora-ink-soft);
+}
