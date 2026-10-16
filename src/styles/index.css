@@ -1,0 +1,13 @@
+@import "./tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--valoora-bg);
+  color: var(--valoora-ink);
+  -webkit-font-smoothing: antialiased;
+}

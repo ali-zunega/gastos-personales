@@ -1,0 +1,65 @@
+.page {
+  min-height: 100vh;
+  padding: 40px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--valoora-ink-soft);
+}
+
+.grid {
+  width: 100%;
+  max-width: 920px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--valoora-card);
+  border: 1px solid var(--valoora-border);
+  border-radius: var(--valoora-radius);
+  box-shadow: var(--valoora-shadow);
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--valoora-ink);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--valoora-ink-soft);
+}

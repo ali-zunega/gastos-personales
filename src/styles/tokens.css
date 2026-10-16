@@ -1,0 +1,35 @@
+/*
+ * Valoora — Design Tokens
+ * Fuente única de verdad para colores, radios, sombras y foco.
+ * Se consumen desde los CSS Modules vía var(--valoora-*).
+ */
+:root {
+  /* Marca — inspirada en el mockup lavanda / morado */
+  --valoora-bg: #e9ebf6;
+  --valoora-surface: #f4f3ff;
+  --valoora-card: #ffffff;
+  --valoora-primary: #5f2ee5;
+  --valoora-primary-deep: #4c1d95;
+  --valoora-primary-soft: #ede9fe;
+  --valoora-accent: #a78bfa;
+  --valoora-accent-pale: #c4b5fd;
+
+  /* Texto y bordes */
+  --valoora-ink: #1e1b4b;
+  --valoora-ink-soft: #4c4a6b;
+  --valoora-border: #ded9f0;
+
+  /* Estado */
+  --valoora-danger: #d92d20;
+  --valoora-danger-deep: #b42318;
+  --valoora-danger-soft: #fee4e2;
+
+  /* Superficie */
+  --valoora-radius: 18px;
+  --valoora-radius-sm: 12px;
+  --valoora-shadow: 0 20px 60px rgba(76, 29, 149, 0.18);
+  --valoora-shadow-lg: 0 24px 64px rgba(76, 29, 149, 0.28);
+
+  /* Foco accesible */
+  --valoora-focus-ring: rgba(95, 46, 229, 0.35);
+}
