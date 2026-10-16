@@ -1,17 +1,126 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import styles from "./App.module.css";
 import Logo from "./components/Logo.jsx";
 import Button from "./components/ui/Button.jsx";
-import Input from "./components/ui/Input.jsx";
 import Modal from "./components/ui/Modal.jsx";
+import ExpenseForm from "./components/expense/ExpenseForm.jsx";
+import ExpenseList from "./components/expense/ExpenseList.jsx";
+import CategoryFilter from "./components/expense/CategoryFilter.jsx";
+import SummaryCards from "./components/expense/SummaryCards.jsx";
+
+const EMPTY_FILTERS = {
+  category: "",
+  search: "",
+  startDate: "",
+  endDate: "",
+};
+
+const daysAgo = (offset) => {
+  const date = new Date();
+  date.setDate(Math.max(1, date.getDate() - offset));
+  return date.toISOString().split("T")[0];
+};
+
+const INITIAL_EXPENSES = [
+  {
+    id: "demo_1",
+    userId: "demo",
+    amount: 45000,
+    category: "Alimentación",
+    date: daysAgo(1),
+    description: "Compra semanal en supermercado",
+  },
+  {
+    id: "demo_2",
+    userId: "demo",
+    amount: 15000,
+    category: "Transporte",
+    date: daysAgo(3),
+    description: "Carga de combustible",
+  },
+  {
+    id: "demo_3",
+    userId: "demo",
+    amount: 30000,
+    category: "Servicios",
+    date: daysAgo(6),
+    description: "Internet y telefonía",
+  },
+  {
+    id: "demo_4",
+    userId: "demo",
+    amount: 12000,
+    category: "Entretenimiento",
+    date: daysAgo(9),
+    description: "Cine y streaming",
+  },
+];
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [amount, setAmount] = useState("");
+  const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
+  const [filters, setFilters] = useState(EMPTY_FILTERS);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [editingExpense, setEditingExpense] = useState(null);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setAmount("");
+  const filteredExpenses = useMemo(
+    () =>
+      expenses.filter((exp) => {
+        const matchesCategory = filters.category
+          ? exp.category === filters.category
+          : true;
+        const matchesSearch = filters.search
+          ? exp.description
+              .toLowerCase()
+              .includes(filters.search.toLowerCase()) ||
+            exp.category.toLowerCase().includes(filters.search.toLowerCase())
+          : true;
+        const matchesStartDate = filters.startDate
+          ? exp.date >= filters.startDate
+          : true;
+        const matchesEndDate = filters.endDate
+          ? exp.date <= filters.endDate
+          : true;
+
+        return (
+          matchesCategory && matchesSearch && matchesStartDate && matchesEndDate
+        );
+      }),
+    [expenses, filters],
+  );
+
+  const openCreateForm = () => {
+    setEditingExpense(null);
+    setIsFormOpen(true);
+  };
+
+  const openEditForm = (expense) => {
+    setEditingExpense(expense);
+    setIsFormOpen(true);
+  };
+
+  const closeForm = () => {
+    setIsFormOpen(false);
+    setEditingExpense(null);
+  };
+
+  const handleSubmit = (data) => {
+    if (editingExpense) {
+      setExpenses((prev) =>
+        prev.map((exp) =>
+          exp.id === editingExpense.id ? { ...exp, ...data } : exp,
+        ),
+      );
+    } else {
+      setExpenses((prev) => [
+        { id: `exp_${crypto.randomUUID()}`, userId: "demo", ...data },
+        ...prev,
+      ]);
+    }
+    closeForm();
+  };
+
+  const handleDelete = (id) => {
+    setExpenses((prev) => prev.filter((exp) => exp.id !== id));
   };
 
   return (
@@ -19,91 +128,43 @@ function App() {
       <header className={styles.header}>
         <Logo variant="full" size={52} />
         <p className={styles.subtitle}>
-          Biblioteca de componentes UI — Button, Input y Modal
+          Demostración de componentes — gestión de gastos personales
         </p>
       </header>
 
-      <div className={styles.grid}>
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>Button — variantes</h2>
-          <div className={styles.row}>
-            <Button>Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="ghost">Ghost</Button>
-            <Button variant="danger">Danger</Button>
-          </div>
+      <section className={styles.section}>
+        <div className={styles.demoHeader}>
+          <h2 className={styles.sectionTitle}>Gastos del mes</h2>
+          <Button onClick={openCreateForm}>Nuevo gasto</Button>
+        </div>
 
-          <h2 className={styles.cardTitle}>Button — tamaños y estados</h2>
-          <div className={styles.row}>
-            <Button size="sm">Small</Button>
-            <Button size="md">Medium</Button>
-            <Button size="lg">Large</Button>
-          </div>
-          <div className={styles.row}>
-            <Button loading>Cargando…</Button>
-            <Button disabled>Deshabilitado</Button>
-          </div>
-          <Button fullWidth variant="secondary">
-            Full width
-          </Button>
-        </section>
+        <SummaryCards expenses={expenses} />
 
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>Input</h2>
-          <div className={styles.form}>
-            <Input
-              label="Correo electrónico"
-              type="email"
-              placeholder="tu@correo.com"
-            />
-            <Input
-              label="Monto"
-              inputMode="decimal"
-              placeholder="0.00"
-              hint="Ingresá el monto del gasto en pesos."
-            />
-            <Input
-              label="Categoría"
-              placeholder="Requerido"
-              error="Debes seleccionar una categoría válida."
-            />
-            <Input label="Deshabilitado" placeholder="No editable" disabled />
-          </div>
-        </section>
+        <CategoryFilter
+          filters={filters}
+          onChange={setFilters}
+          resultCount={filteredExpenses.length}
+          totalCount={expenses.length}
+        />
 
-        <section className={styles.card}>
-          <h2 className={styles.cardTitle}>Modal</h2>
-          <p className={styles.note}>
-            Se renderiza en un portal, cierra con Escape o clic afuera y bloquea
-            el scroll del body.
-          </p>
-          <Button onClick={() => setIsModalOpen(true)}>Abrir modal</Button>
-        </section>
-      </div>
+        <ExpenseList
+          expenses={filteredExpenses}
+          onEdit={openEditForm}
+          onDelete={handleDelete}
+          emptyMessage="No hay gastos que coincidan con los filtros."
+        />
+      </section>
 
       <Modal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        title="Nuevo gasto"
-        footer={
-          <>
-            <Button variant="ghost" onClick={closeModal}>
-              Cancelar
-            </Button>
-            <Button onClick={closeModal}>Guardar</Button>
-          </>
-        }
+        isOpen={isFormOpen}
+        onClose={closeForm}
+        title={editingExpense ? "Editar gasto" : "Nuevo gasto"}
       >
-        <div className={styles.form}>
-          <Input
-            label="Monto"
-            inputMode="decimal"
-            placeholder="0.00"
-            value={amount}
-            onChange={(event) => setAmount(event.target.value)}
-          />
-          <Input label="Descripción" placeholder="Ej. Supermercado" />
-        </div>
+        <ExpenseForm
+          expense={editingExpense}
+          onSubmit={handleSubmit}
+          onCancel={closeForm}
+        />
       </Modal>
     </main>
   );
