@@ -1,0 +1,28 @@
+🎯 Desafío Take-Home: Aplicación de Gestión de Gastos Personales
+Qué construir: Desarrolla una aplicación web para la gestión de gastos personales que permita a los usuarios registrar, categorizar y analizar sus gastos mensuales. La aplicación busca facilitar el seguimiento financiero personal mediante una interfaz intuitiva y funcional.
+Requisitos funcionales:
+* Autenticación de usuario (registro e inicio de sesión).
+* Registro de gastos con detalles como monto, fecha y categoría (ej. Alimentación, Transporte, Entretenimiento).
+* Visualización de un resumen mensual con gráficos de distribución de gastos por categoría.
+* Funcionalidad para editar y eliminar gastos.
+* Posibilidad de filtrar y buscar gastos por fecha o categoría.
+Requisitos técnicos (evaluados en el código):
+* Manejo de errores y validaciones adecuadas para la entrada de datos.
+* Estructura de carpetas clara y separación de responsabilidades.
+* Al menos un test unitario o de integración.
+* README con instrucciones de instalación y decisiones tomadas.
+Stack:
+* React
+* JavaScript
+* Styled Components (opcional para estilos)
+* 
+Plan 3-5 días: Día 1: Diseño del modelo de datos + setup + estructura del proyecto Días 2-3: Implementación de la autenticación y el registro de gastos Días 4-5: Visualización de gráficos, manejo de edge cases, tests y README
+Decisión de diseño requerida: Decide cómo manejar el estado de la aplicación para la gestión de autenticación y gastos (ej. Context API, Redux) y justifica tu elección.
+
+💪 CUANDO TERMINES: 
+Sube tu entregable en el chat para evaluación y feedback.
+* Código/proyecto: archivos individuales o ZIP
+* Diseño / especificación: PDF con wireframes, flujos, decisiones de diseño
+* QA: PDF o TXT con plan de pruebas y casos de test ⚠️ Usa el botón de adjuntar archivo - no envíes links
+
+
