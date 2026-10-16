@@ -5,14 +5,18 @@ const CURRENT_USER_KEY = "valoora_current_user";
 
 export const authService = {
   register({ name, email, password }) {
+    const normalizedEmail = email.trim().toLowerCase();
     const users = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
 
-    const existingUser = users.find((u) => u.email === email);
+    const existingUser = users.find((u) => u.email === normalizedEmail);
     if (existingUser) {
       throw new Error("El correo electrónico ya se encuentra registrado.");
     }
 
-    const newUser = { ...createUser({ name, email }), password };
+    const newUser = {
+      ...createUser({ name, email: normalizedEmail }),
+      password,
+    };
     users.push(newUser);
     localStorage.setItem(USERS_KEY, JSON.stringify(users));
 
@@ -28,10 +32,11 @@ export const authService = {
   },
 
   login(email, password) {
+    const normalizedEmail = email.trim().toLowerCase();
     const users = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
 
     const user = users.find(
-      (u) => u.email === email && u.password === password,
+      (u) => u.email === normalizedEmail && u.password === password,
     );
     if (!user) {
       throw new Error(
