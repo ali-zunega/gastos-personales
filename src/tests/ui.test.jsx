@@ -1,11 +1,9 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Button from "../components/ui/Button.jsx";
 import Input from "../components/ui/Input.jsx";
 import Modal from "../components/ui/Modal.jsx";
-
-afterEach(cleanup);
 
 describe("Button (smoke)", () => {
   it("renderiza el texto y dispara el click", async () => {
