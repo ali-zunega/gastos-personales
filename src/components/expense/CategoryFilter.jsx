@@ -63,19 +63,21 @@ export default function CategoryFilter({
           onChange={(event) => patch({ category: event.target.value })}
         />
 
-        <Input
-          label="Desde"
-          type="date"
-          value={filters.startDate}
-          onChange={(event) => patch({ startDate: event.target.value })}
-        />
+        <div className={styles.dateRange}>
+          <Input
+            label="Desde"
+            type="date"
+            value={filters.startDate}
+            onChange={(event) => patch({ startDate: event.target.value })}
+          />
 
-        <Input
-          label="Hasta"
-          type="date"
-          value={filters.endDate}
-          onChange={(event) => patch({ endDate: event.target.value })}
-        />
+          <Input
+            label="Hasta"
+            type="date"
+            value={filters.endDate}
+            onChange={(event) => patch({ endDate: event.target.value })}
+          />
+        </div>
       </div>
 
       <div className={styles.footer}>

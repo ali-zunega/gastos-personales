@@ -1,0 +1,20 @@
+.page {
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--valoora-card);
+  border: 1px solid rgba(227, 221, 245, 0.7);
+  border-radius: var(--valoora-radius-lg);
+  box-shadow: 0 16px 40px rgba(76, 29, 149, 0.15);
+}

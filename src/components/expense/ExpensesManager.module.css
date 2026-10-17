@@ -1,0 +1,59 @@
+.shell {
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.aside,
+.filters,
+.listSection {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--valoora-ink);
+}
+
+@media (min-width: 900px) {
+  .content {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-template-areas:
+      "aside filters"
+      "list  list";
+    gap: 24px;
+    align-items: start;
+  }
+
+  .aside {
+    grid-area: aside;
+  }
+
+  .filters {
+    grid-area: filters;
+  }
+
+  .listSection {
+    grid-area: list;
+    gap: 20px;
+  }
+}

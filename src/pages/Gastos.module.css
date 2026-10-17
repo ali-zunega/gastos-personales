@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--valoora-ink);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--valoora-ink-soft);
+}

@@ -10,10 +10,9 @@
 }
 
 .fields {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 14px;
-  align-items: end;
 }
 
 .fields > * {
@@ -21,7 +20,17 @@
 }
 
 .search {
-  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.dateRange {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dateRange > * {
+  min-width: 0;
 }
 
 .footer {
