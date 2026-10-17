@@ -2,17 +2,23 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .empty {
   margin: 0;
-  padding: 32px 16px;
+  padding: 36px 16px;
   text-align: center;
   color: var(--valoora-ink-soft);
   background: var(--valoora-surface);
-  border: 1px dashed var(--valoora-border);
-  border-radius: var(--valoora-radius-sm);
+  border: 1px dashed var(--valoora-accent-pale);
+  border-radius: 20px;
 }
