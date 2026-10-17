@@ -125,35 +125,64 @@ function App() {
 
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <Logo variant="full" size={52} />
-        <p className={styles.subtitle}>
-          Demostración de componentes — gestión de gastos personales
-        </p>
-      </header>
+      <div className={styles.shell}>
+        <header className={styles.topbar}>
+          <div className={styles.brand}>
+            <Logo variant="app" size={42} />
+            <div>
+              <h1 className={styles.title}>Valoora</h1>
+              <p className={styles.subtitle}>Gastos personales</p>
+            </div>
+          </div>
+          <span className={styles.bell} aria-hidden="true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span className={styles.badge}>3</span>
+          </span>
+        </header>
 
-      <section className={styles.section}>
-        <div className={styles.demoHeader}>
-          <h2 className={styles.sectionTitle}>Gastos del mes</h2>
-          <Button onClick={openCreateForm}>Nuevo gasto</Button>
+        <div className={styles.content}>
+          <div className={styles.aside}>
+            <SummaryCards expenses={expenses} />
+          </div>
+
+          <div className={styles.filters}>
+            <CategoryFilter
+              filters={filters}
+              onChange={setFilters}
+              resultCount={filteredExpenses.length}
+              totalCount={expenses.length}
+            />
+          </div>
+
+          <div className={styles.listSection}>
+            <div className={styles.listHeader}>
+              <h2 className={styles.sectionTitle}>Movimientos</h2>
+              <Button size="sm" onClick={openCreateForm}>
+                + Nuevo
+              </Button>
+            </div>
+
+            <ExpenseList
+              expenses={filteredExpenses}
+              onEdit={openEditForm}
+              onDelete={handleDelete}
+              emptyMessage="No hay gastos que coincidan con los filtros."
+            />
+          </div>
         </div>
-
-        <SummaryCards expenses={expenses} />
-
-        <CategoryFilter
-          filters={filters}
-          onChange={setFilters}
-          resultCount={filteredExpenses.length}
-          totalCount={expenses.length}
-        />
-
-        <ExpenseList
-          expenses={filteredExpenses}
-          onEdit={openEditForm}
-          onDelete={handleDelete}
-          emptyMessage="No hay gastos que coincidan con los filtros."
-        />
-      </section>
+      </div>
 
       <Modal
         isOpen={isFormOpen}

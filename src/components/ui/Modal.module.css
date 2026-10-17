@@ -7,17 +7,18 @@
   justify-content: center;
   padding: 24px;
   background: rgba(30, 27, 75, 0.45);
+  backdrop-filter: blur(2px);
   animation: fade 0.15s ease;
 }
 
 .dialog {
   width: 100%;
-  max-width: 480px;
+  max-width: 440px;
   max-height: calc(100vh - 48px);
   overflow-y: auto;
-  padding: 24px;
+  padding: 28px 24px;
   background: var(--valoora-card);
-  border-radius: var(--valoora-radius);
+  border-radius: var(--valoora-radius-lg);
   box-shadow: var(--valoora-shadow-lg);
   animation: pop 0.18s ease;
 }
@@ -27,8 +28,9 @@
 }
 
 .title {
-  margin: 0 0 16px;
-  font-size: 1.15rem;
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
   color: var(--valoora-ink);
 }
 
@@ -55,7 +57,7 @@
 @keyframes pop {
   from {
     opacity: 0;
-    transform: translateY(8px) scale(0.98);
+    transform: translateY(10px) scale(0.98);
   }
   to {
     opacity: 1;

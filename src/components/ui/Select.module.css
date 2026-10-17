@@ -3,11 +3,13 @@
   flex-direction: column;
   gap: 6px;
   width: 100%;
+  min-width: 0;
 }
 
 .label {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--valoora-ink);
 }
 
@@ -18,27 +20,30 @@
 
 .select {
   width: 100%;
-  padding: 11px 36px 11px 14px;
+  min-width: 0;
+  padding: 12px 40px 12px 16px;
   border: 1px solid var(--valoora-border);
   border-radius: var(--valoora-radius-sm);
-  background: var(--valoora-card);
+  background: var(--valoora-surface);
   color: var(--valoora-ink);
   font: inherit;
+  font-weight: 600;
   cursor: pointer;
   appearance: none;
   transition:
     border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
 }
 
 .select:focus {
   outline: none;
   border-color: var(--valoora-primary);
+  background: var(--valoora-card);
   box-shadow: 0 0 0 3px var(--valoora-focus-ring);
 }
 
 .select:disabled {
-  background: var(--valoora-surface);
   cursor: not-allowed;
   opacity: 0.7;
 }
@@ -55,11 +60,11 @@
 .chevron {
   position: absolute;
   top: 50%;
-  right: 14px;
+  right: 16px;
   transform: translateY(-50%);
   pointer-events: none;
   font-size: 0.75rem;
-  color: var(--valoora-ink-soft);
+  color: var(--valoora-primary);
 }
 
 .hint {
@@ -69,5 +74,6 @@
 
 .error {
   font-size: 0.78rem;
+  font-weight: 600;
   color: var(--valoora-danger);
 }

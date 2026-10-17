@@ -4,9 +4,9 @@
   justify-content: center;
   gap: 8px;
   border: 1px solid transparent;
-  border-radius: var(--valoora-radius-sm);
+  border-radius: var(--valoora-radius-pill);
   font: inherit;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
   white-space: nowrap;
@@ -16,7 +16,7 @@
     border-color 0.15s ease,
     color 0.15s ease,
     box-shadow 0.15s ease,
-    transform 0.05s ease;
+    transform 0.12s ease;
 }
 
 .button:focus-visible {
@@ -27,36 +27,39 @@
 .button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .button:not(:disabled):active {
-  transform: translateY(1px);
+  transform: translateY(1px) scale(0.99);
 }
 
 /* Tamaños */
 .sm {
-  padding: 8px 12px;
-  font-size: 0.85rem;
+  padding: 9px 16px;
+  font-size: 0.82rem;
 }
 
 .md {
-  padding: 11px 18px;
-  font-size: 0.95rem;
+  padding: 12px 22px;
+  font-size: 0.92rem;
 }
 
 .lg {
-  padding: 14px 24px;
-  font-size: 1.05rem;
+  padding: 15px 28px;
+  font-size: 1.02rem;
 }
 
 /* Variantes */
 .primary {
-  background: var(--valoora-primary);
+  background: var(--valoora-gradient);
   color: #ffffff;
+  box-shadow: 0 10px 24px rgba(95, 46, 229, 0.35);
 }
 
 .primary:not(:disabled):hover {
-  background: var(--valoora-primary-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(95, 46, 229, 0.42);
 }
 
 .secondary {
@@ -79,12 +82,15 @@
 }
 
 .danger {
-  background: var(--valoora-danger);
-  color: #ffffff;
+  background: #fff1f0;
+  color: var(--valoora-danger);
+  border-color: #f5c6c0;
 }
 
 .danger:not(:disabled):hover {
-  background: var(--valoora-danger-deep);
+  background: var(--valoora-danger);
+  border-color: transparent;
+  color: #ffffff;
 }
 
 .fullWidth {

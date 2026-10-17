@@ -2,13 +2,17 @@
  * Valoora — Design Tokens
  * Fuente única de verdad para colores, radios, sombras y foco.
  * Se consumen desde los CSS Modules vía var(--valoora-*).
+ * Lenguaje visual: lavanda suave, tarjetas blancas muy redondeadas,
+ * morado como primario y números en azul noche.
  */
 :root {
-  /* Marca — inspirada en el mockup lavanda / morado */
+  /* Marca */
   --valoora-bg: #e9ebf6;
   --valoora-surface: #f4f3ff;
+  --valoora-surface-soft: #faf9ff;
   --valoora-card: #ffffff;
   --valoora-primary: #5f2ee5;
+  --valoora-primary-bright: #7a3ff2;
   --valoora-primary-deep: #4c1d95;
   --valoora-primary-soft: #ede9fe;
   --valoora-accent: #a78bfa;
@@ -17,7 +21,8 @@
   /* Texto y bordes */
   --valoora-ink: #1e1b4b;
   --valoora-ink-soft: #4c4a6b;
-  --valoora-border: #ded9f0;
+  --valoora-border: #e3ddf5;
+  --valoora-track: #e7e2f8;
 
   /* Estado */
   --valoora-danger: #d92d20;
@@ -25,10 +30,18 @@
   --valoora-danger-soft: #fee4e2;
 
   /* Superficie */
-  --valoora-radius: 18px;
-  --valoora-radius-sm: 12px;
-  --valoora-shadow: 0 20px 60px rgba(76, 29, 149, 0.18);
-  --valoora-shadow-lg: 0 24px 64px rgba(76, 29, 149, 0.28);
+  --valoora-radius: 24px;
+  --valoora-radius-lg: 28px;
+  --valoora-radius-sm: 16px;
+  --valoora-radius-pill: 999px;
+  --valoora-gradient: linear-gradient(
+    135deg,
+    #7a3ff2 0%,
+    #5f2ee5 60%,
+    #4c1d95 130%
+  );
+  --valoora-shadow: 0 16px 40px rgba(76, 29, 149, 0.12);
+  --valoora-shadow-lg: 0 24px 64px rgba(76, 29, 149, 0.22);
 
   /* Foco accesible */
   --valoora-focus-ring: rgba(95, 46, 229, 0.35);
