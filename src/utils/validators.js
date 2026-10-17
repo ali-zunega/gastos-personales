@@ -1,3 +1,15 @@
+export function validateRequired(value) {
+  return value && typeof value === "string" && value.trim().length > 0;
+}
+
+export function validateEmail(email) {
+  return isValidEmail(email);
+}
+
+export function validatePassword(password) {
+  return typeof password === "string" && password.length >= 6;
+}
+
 export function isValidEmail(email) {
   if (!email || typeof email !== "string") return false;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

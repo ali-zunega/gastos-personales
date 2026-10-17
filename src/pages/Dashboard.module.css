@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--valoora-ink);
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--valoora-ink-soft);
+}
+
+.chartsSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .chartsSection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--valoora-card);
+  border: 1px solid rgba(227, 221, 245, 0.7);
+  border-radius: var(--valoora-radius);
+  box-shadow: 0 10px 28px rgba(76, 29, 149, 0.08);
+}
+
+.chartTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--valoora-ink);
+}
+
+.emptyChart {
+  margin: 40px 0;
+  text-align: center;
+  color: var(--valoora-ink-soft);
+}
+
+.recentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--valoora-ink);
+}
+
+.linkBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: var(--valoora-radius-pill);
+  background: var(--valoora-gradient);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.linkBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(95, 46, 229, 0.35);
+}
